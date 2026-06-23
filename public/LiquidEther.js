@@ -218,11 +218,19 @@ void main(){vec2 old=texture2D(velocity,uv).xy;vec2 n0=texture2D(velocity_new,uv
       window.removeEventListener('resize',onResize);
       if(ro)ro.disconnect();if(io)io.disconnect();
       Mou.dispose();
+      if(palTex)palTex.dispose();
       if(Com.renderer){var c=Com.renderer.domElement;if(c&&c.parentNode)c.parentNode.removeChild(c);Com.renderer.dispose();try{Com.renderer.forceContextLoss();}catch(e){}}
+    };
+
+    self._updateColors=function(newColors){
+      if(palTex)palTex.dispose();
+      palTex=makePalette(newColors);
+      outMesh.material.uniforms.palette.value=palTex;
     };
   }
 
   LiquidEther.prototype.dispose=function(){if(this._dispose)this._dispose();};
+  LiquidEther.prototype.updateColors=function(newColors){if(this._updateColors)this._updateColors(newColors);};
 
   G.LiquidEther=LiquidEther;
 })(window);

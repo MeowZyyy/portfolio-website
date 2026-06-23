@@ -50,26 +50,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Accent presets mapping
+    let liquidEtherInstance = null;
+
     const accentColors = {
         green: {
             primary: '#10b981',
             secondary: '#34d399',
-            hover: '#059669'
+            hover: '#059669',
+            liquid: ['#064e3b', '#10b981', '#34d399', '#06b6d4', '#a7f3d0']
         },
         cyan: {
             primary: '#06b6d4',
             secondary: '#22d3ee',
-            hover: '#0891b2'
+            hover: '#0891b2',
+            liquid: ['#083344', '#06b6d4', '#22d3ee', '#0891b2', '#cffafe']
         },
         pink: {
             primary: '#d946ef',
             secondary: '#f472b6',
-            hover: '#c026d3'
+            hover: '#c026d3',
+            liquid: ['#4a044e', '#d946ef', '#f472b6', '#c026d3', '#fce7f3']
         },
         amber: {
             primary: '#f59e0b',
             secondary: '#fbbf24',
-            hover: '#d97706'
+            hover: '#d97706',
+            liquid: ['#451a03', '#f59e0b', '#fbbf24', '#d97706', '#fef3c7']
         }
     };
 
@@ -91,6 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         localStorage.setItem('theme-accent', accentName);
+
+        // Dynamic fluid background color updates
+        if (liquidEtherInstance && typeof liquidEtherInstance.updateColors === 'function') {
+            liquidEtherInstance.updateColors(colors.liquid);
+        }
     }
 
     const savedAccent = localStorage.getItem('theme-accent') || 'green';
@@ -398,8 +409,12 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================= */
     const liquidBg = document.getElementById('liquid-bg');
     if (liquidBg && window.LiquidEther) {
-        new LiquidEther(liquidBg, {
-            colors: ['#064e3b', '#10b981', '#34d399', '#06b6d4', '#a7f3d0'],
+        const currentAccent = localStorage.getItem('theme-accent') || 'green';
+        const initialColors = (accentColors[currentAccent] && accentColors[currentAccent].liquid) 
+            || ['#064e3b', '#10b981', '#34d399', '#06b6d4', '#a7f3d0'];
+
+        liquidEtherInstance = new LiquidEther(liquidBg, {
+            colors: initialColors,
             mouseForce: 15,          // Slower, more elegant mouse reaction (was 25)
             cursorSize: 100,
             resolution: 0.3,        
