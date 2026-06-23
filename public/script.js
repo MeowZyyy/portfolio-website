@@ -819,4 +819,99 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })();
 
+    // =========================================
+    // 14. RETRO ARCADE CABINET INTERACTIONS
+    // =========================================
+    const arcadeModal = document.getElementById('arcadeModal');
+    const arcadeIframe = document.getElementById('arcadeIframe');
+    const arcadeClose = document.getElementById('arcadeClose');
+    const playArcadeButtons = document.querySelectorAll('.play-arcade-btn');
+
+    if (arcadeModal && arcadeClose && arcadeIframe) {
+        document.body.appendChild(arcadeModal);
+
+        playArcadeButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const gameUrl = btn.getAttribute('data-game-url');
+                arcadeIframe.src = gameUrl;
+                arcadeModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeArcadeModal() {
+            arcadeModal.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                arcadeIframe.src = '';
+            }, 400);
+        }
+
+        arcadeClose.addEventListener('click', closeArcadeModal);
+
+        arcadeModal.addEventListener('click', (e) => {
+            if (e.target === arcadeModal) {
+                closeArcadeModal();
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && arcadeModal.classList.contains('active')) {
+                closeArcadeModal();
+            }
+        });
+
+        // Retro synthesized sound effects on panel buttons!
+        const actionButtons = document.querySelectorAll('.arcade-action-btn');
+        actionButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Visual bounce
+                btn.style.transform = 'scale(0.9) translateY(3px)';
+                setTimeout(() => {
+                    btn.style.transform = '';
+                }, 100);
+
+                try {
+                    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+
+                    if (btn.classList.contains('red')) {
+                        // Retro synth jump/laser
+                        osc.type = 'square';
+                        osc.frequency.setValueAtTime(150, ctx.currentTime);
+                        osc.frequency.exponentialRampToValueAtTime(450, ctx.currentTime + 0.15);
+                        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+                        osc.start();
+                        osc.stop(ctx.currentTime + 0.15);
+                    } else if (btn.classList.contains('yellow')) {
+                        // Retro explosion/crash
+                        osc.type = 'sawtooth';
+                        osc.frequency.setValueAtTime(250, ctx.currentTime);
+                        osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.25);
+                        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+                        osc.start();
+                        osc.stop(ctx.currentTime + 0.25);
+                    } else {
+                        // Retro coin chime
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(987.77, ctx.currentTime); // B5
+                        osc.frequency.setValueAtTime(1318.51, ctx.currentTime + 0.08); // E6
+                        gain.gain.setValueAtTime(0.06, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+                        osc.start();
+                        osc.stop(ctx.currentTime + 0.35);
+                    }
+                } catch (err) {
+                    console.warn("Web Audio API not supported or context blocked by browser", err);
+                }
+            });
+        });
+    }
+
 });

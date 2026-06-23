@@ -59,7 +59,10 @@
                     <span class="tag">Web Audio API</span>
                     <span class="tag">HTML5 Canvas</span>
                 </div>
-                <button class="btn btn-secondary project-detail-btn" style="text-align: center; width: 100%; background: none; border: 1px solid var(--border-light); color: var(--text-light); cursor: pointer; padding: 0.6rem 0; border-radius: 4px; font-weight: bold; font-family: inherit;">View Details</button>
+                <div style="display: flex; gap: 0.5rem; width: 100%;">
+                    <button class="btn btn-secondary project-detail-btn" style="flex: 1; text-align: center; background: none; border: 1px solid var(--border-light); color: var(--text-light); cursor: pointer; padding: 0.6rem 0; border-radius: 4px; font-weight: bold; font-family: inherit;">Details</button>
+                    <button class="btn btn-primary play-arcade-btn" data-game-url="https://meowzyyy.github.io/jhonny-bird/" style="flex: 1; text-align: center; padding: 0.6rem 0; border-radius: 4px; font-weight: bold; font-family: inherit; font-size: 0.95rem;">Play Game</button>
+                </div>
             </div>
 
             <!-- Project 3 -->
@@ -223,6 +226,48 @@
                     <div class="project-modal-actions">
                         <a id="projectModalPlay" href="#" target="_blank" class="btn btn-primary" style="display: none;">Play Game</a>
                         <a id="projectModalRepo" href="#" target="_blank" class="btn btn-secondary" style="display: none;">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Retro Arcade Modal -->
+        <div id="arcadeModal" class="arcade-modal">
+            <div class="arcade-modal-content">
+                <!-- Close Button -->
+                <button id="arcadeClose" class="arcade-close-btn">&times;</button>
+                
+                <!-- The Arcade Cabinet -->
+                <div class="arcade-cabinet">
+                    <!-- Header / Marquee -->
+                    <div class="cabinet-header">
+                        <div class="marquee-text">RETRO ARCADE</div>
+                    </div>
+                    
+                    <!-- Screen Area -->
+                    <div class="cabinet-screen-wrapper">
+                        <!-- Scanline effect for authentic CRT look -->
+                        <div class="crt-overlay"></div>
+                        <iframe id="arcadeIframe" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+                    </div>
+                    
+                    <!-- Control Panel -->
+                    <div class="cabinet-controls">
+                        <div class="joystick-wrapper">
+                            <div class="joystick-base">
+                                <div class="joystick-stick">
+                                    <div class="joystick-ball"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttons-wrapper">
+                            <button class="arcade-action-btn red" title="Retro Synth Jump sound"></button>
+                            <button class="arcade-action-btn yellow" title="Retro Synth Crash sound"></button>
+                            <button class="arcade-action-btn blue" title="Retro Coin sound"></button>
+                        </div>
+                        <div class="cabinet-insert-coin">
+                            <div class="coin-slot">INSERT COIN</div>
+                        </div>
                     </div>
                 </div>
             </div>
