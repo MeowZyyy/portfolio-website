@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tpMount && window.TextPressure) {
         new TextPressure(tpMount, {
             text: 'Hello!',
-            textColor: '#10b981',
+            textColor: 'var(--primary-color)',
             minFontSize: 20,
             width: true,
             weight: true,
