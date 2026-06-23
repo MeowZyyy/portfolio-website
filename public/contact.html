@@ -8,8 +8,8 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <link class="cache-bust" rel="stylesheet" href="styles.css?v=3.0">
-    <script class="cache-bust" src="script.js?v=3.0" defer></script>
+    <link class="cache-bust" rel="stylesheet" href="styles.css?v=3.1">
+    <script class="cache-bust" src="script.js?v=3.1" defer></script>
 </head>
 <body>
     <canvas id="particle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.8;"></canvas>
@@ -26,6 +26,12 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="accent-picker">
+                    <button class="accent-dot green active" data-accent="green" aria-label="Green Accent"></button>
+                    <button class="accent-dot cyan" data-accent="cyan" aria-label="Cyan Accent"></button>
+                    <button class="accent-dot pink" data-accent="pink" aria-label="Pink Accent"></button>
+                    <button class="accent-dot amber" data-accent="amber" aria-label="Amber Accent"></button>
+                </div>
                 <button id="theme-toggle" aria-label="Toggle Theme" style="background: none; border: none; cursor: pointer; color: var(--text-light); font-size: 1.2rem; display: flex; padding: 0.5rem;">
                     <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                     <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>

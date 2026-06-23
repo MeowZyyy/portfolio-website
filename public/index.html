@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <link rel="stylesheet" href="styles.css?v=3.0">
+    <link rel="stylesheet" href="styles.css?v=3.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,9 +19,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="LiquidEther.js?v=3.0"></script>
-    <script src="TextPressure.js?v=3.0"></script>
-    <script src="script.js?v=3.0" defer></script>
+    <script src="LiquidEther.js?v=3.1"></script>
+    <script src="TextPressure.js?v=3.1"></script>
+    <script src="script.js?v=3.1" defer></script>
     <style>
         /* This makes the page glide smoothly when clicking nav links */
         html {
@@ -78,6 +78,12 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="accent-picker">
+                    <button class="accent-dot green active" data-accent="green" aria-label="Green Accent"></button>
+                    <button class="accent-dot cyan" data-accent="cyan" aria-label="Cyan Accent"></button>
+                    <button class="accent-dot pink" data-accent="pink" aria-label="Pink Accent"></button>
+                    <button class="accent-dot amber" data-accent="amber" aria-label="Amber Accent"></button>
+                </div>
                 <button id="theme-toggle" aria-label="Toggle Theme"
                     style="background: none; border: none; cursor: pointer; color: var(--text-light); font-size: 1.2rem; display: flex; padding: 0.5rem;">
                     <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"

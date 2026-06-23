@@ -1902,3 +1902,47 @@ body,
     letter-spacing: 0.5px;
     font-weight: bold;
 }
+
+/* =========================================
+   ACCENT COLOR PICKER
+   ========================================= */
+.accent-picker {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-right: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.35rem 0.6rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
+}
+
+.accent-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    opacity: 0.55;
+}
+
+.accent-dot:hover {
+    transform: scale(1.25);
+    opacity: 0.9;
+}
+
+.accent-dot.active {
+    transform: scale(1.35);
+    opacity: 1;
+}
+
+.accent-dot.green { background-color: #10b981; }
+.accent-dot.cyan { background-color: #06b6d4; }
+.accent-dot.pink { background-color: #d946ef; }
+.accent-dot.amber { background-color: #f59e0b; }
+
+.accent-dot.green.active { box-shadow: 0 0 10px #10b981; }
+.accent-dot.cyan.active { box-shadow: 0 0 10px #06b6d4; }
+.accent-dot.pink.active { box-shadow: 0 0 10px #d946ef; }
+.accent-dot.amber.active { box-shadow: 0 0 10px #f59e0b; }

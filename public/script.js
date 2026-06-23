@@ -49,6 +49,61 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Accent presets mapping
+    const accentColors = {
+        green: {
+            primary: '#10b981',
+            secondary: '#34d399',
+            hover: '#059669'
+        },
+        cyan: {
+            primary: '#06b6d4',
+            secondary: '#22d3ee',
+            hover: '#0891b2'
+        },
+        pink: {
+            primary: '#d946ef',
+            secondary: '#f472b6',
+            hover: '#c026d3'
+        },
+        amber: {
+            primary: '#f59e0b',
+            secondary: '#fbbf24',
+            hover: '#d97706'
+        }
+    };
+
+    function applyAccent(accentName) {
+        const colors = accentColors[accentName];
+        if (!colors) return;
+        
+        document.documentElement.style.setProperty('--primary-color', colors.primary);
+        document.documentElement.style.setProperty('--secondary-color', colors.secondary);
+        document.documentElement.style.setProperty('--primary-hover', colors.hover);
+        
+        // Update active class on dots
+        document.querySelectorAll('.accent-dot').forEach(dot => {
+            if (dot.getAttribute('data-accent') === accentName) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+        
+        localStorage.setItem('theme-accent', accentName);
+    }
+
+    const savedAccent = localStorage.getItem('theme-accent') || 'green';
+    applyAccent(savedAccent);
+
+    // Bind event listeners to dots
+    document.querySelectorAll('.accent-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+            const accentName = dot.getAttribute('data-accent');
+            applyAccent(accentName);
+        });
+    });
+
     /* =========================================
        2. LOADING SCREEN
        ========================================= */
