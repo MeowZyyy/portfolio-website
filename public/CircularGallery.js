@@ -341,12 +341,12 @@ export class CircularGallery {
   }
   createMedias(items, bend = 3, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: `https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop`, text: 'FPS Gaming' },
-      { image: `https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop`, text: 'Cyber Security' },
-      { image: `https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=800&auto=format&fit=crop`, text: 'Photography' },
-      { image: `https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop`, text: 'Sci-Fi Literature' },
-      { image: `https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop`, text: 'Video Editing' },
-      { image: `https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop`, text: 'Programming' }
+      { image: 'assets/images/FPS GAMING.jpg', text: 'FPS Gaming' },
+      { image: 'assets/images/CYBER SECURITY.jpg', text: 'Cyber Security' },
+      { image: 'assets/images/photography.jpg', text: 'Photography' },
+      { image: 'assets/images/Music.png', text: 'Music' },
+      { image: 'assets/images/EDITING.jpg', text: 'Video Editing' },
+      { image: 'assets/images/programming.png', text: 'Programming' }
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems); // Duplicate for infinite scroll loop
