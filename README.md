@@ -24,7 +24,7 @@ This is a premium, high-fidelity personal digital portfolio themed around **Cybe
 ## 📸 Website Preview
 
 <p align="center">
-  <img src="public/assets/images/portfolio_screenshot.png" alt="Ahmad Ainul Afeeq's Portfolio Showcase" width="100%" style="border-radius: 12px; border: 2px solid #10b981; box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25);" />
+  <img src="public/assets/images/portfolio_showcase_accents.png" alt="Ahmad Ainul Afeeq's Portfolio Showcase (4 Accent Colors)" width="100%" style="border-radius: 12px; border: 2px solid #10b981; box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25);" />
 </p>
 
 ---
