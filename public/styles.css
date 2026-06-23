@@ -1561,3 +1561,57 @@ body,
     gap: 1rem;
     margin-top: 0.5rem;
 }
+
+/* =========================================
+   INFINITE MARQUEE TICKER
+   ========================================= */
+.marquee-ticker {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    background: rgba(16, 185, 129, 0.05);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 1.2rem 0;
+    overflow: hidden;
+    display: flex;
+    user-select: none;
+    margin-bottom: 4rem;
+    position: relative;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    align-items: center;
+    gap: 2rem;
+    animation: marquee-scroll 25s linear infinite;
+}
+
+.marquee-content span {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-family: monospace;
+    display: inline-block;
+}
+
+.marquee-content .divider {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
