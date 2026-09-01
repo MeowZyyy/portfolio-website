@@ -778,7 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Circular Gallery for Hobbies & Interests if container exists
     const galleryContainer = document.getElementById('circular-gallery-container');
     if (galleryContainer) {
-        import('./CircularGallery.js')
+        import('../components/CircularGallery.js')
             .then(module => {
                 new module.CircularGallery(galleryContainer, {
                     bend: 3,
@@ -794,7 +794,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize premium holographic ProfileCard if mount exists
     const cardMount = document.getElementById('profile-card-mount');
     if (cardMount) {
-        import('./ProfileCard.js')
+        import('../components/ProfileCard.js')
             .then(module => {
                 new module.ProfileCard(cardMount, {
                     name: 'Ahmad Ainul Afeeq',
@@ -817,7 +817,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize GlareHover for Academic Journey timeline cards
     const timelineCards = document.querySelectorAll('.timeline-item .glass-card');
     if (timelineCards.length > 0) {
-        import('./GlareHover.js')
+        import('../components/GlareHover.js')
             .then(module => {
                 timelineCards.forEach(card => {
                     new module.GlareHover(card, {
